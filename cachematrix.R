@@ -38,8 +38,10 @@ cacheSolve <- function(x, ...) {
         message("found a value in cache")
         return(Ix)
     }
-    matrix <- x$get()
+    
+    # Continue on if there wasn't a value in the cache:
+    matrix <- x$get()        # get your matrix
     Ix <- solve(matrix, ...) # calculate inverse
     x$setinverse(Ix)         # store in cache
-    Ix
+    Ix                       # return inverse
 }
